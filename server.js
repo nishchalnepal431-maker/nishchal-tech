@@ -26,7 +26,7 @@ Keep answers friendly, engaging, clear, and easy to understand. Use expressive e
 
 function getAIModel() {
     return genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
+        model: "gemini-pro",
         systemInstruction: AI_INSTRUCTIONS
     });
 }
