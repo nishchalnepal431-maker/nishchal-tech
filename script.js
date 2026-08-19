@@ -1,0 +1,6 @@
+const input=document.getElementById("chatInput"),send=document.getElementById("sendBtn");
+function reply(){const text=input.value.trim();if(!text)return;const box=document.querySelector(".chat-box");const u=document.createElement("div");u.className="user-msg";u.innerHTML=`<p>${text.replace(/[<>]/g,"")}</p>`;box.insertBefore(u,document.querySelector(".typing"));input.value="";setTimeout(()=>{const b=document.createElement("div");b.className="chat-msg bot-msg";b.innerHTML='<span class="tiny-bot">◉</span><p>यो अहिले demo AI reply हो 🤖<br>Real OpenAI API जोड्दा नयाँ प्रश्नको वास्तविक AI answer आउनेछ।</p>';box.insertBefore(b,document.querySelector(".typing"));},450)}
+send.addEventListener("click",reply);input.addEventListener("keydown",e=>{if(e.key==="Enter")reply()});
+document.getElementById("themeBtn").onclick=()=>{document.body.classList.toggle("light");document.querySelector("#themeBtn span").textContent=document.body.classList.contains("light")?"Light":"Dark"};
+const topBtn=document.getElementById("scrollTop");window.addEventListener("scroll",()=>topBtn.style.display=scrollY>500?"block":"none");topBtn.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+document.querySelectorAll(".tabs button,.blog-tabs button").forEach(b=>b.onclick=()=>{b.parentElement.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")});
